@@ -38,7 +38,6 @@ int isdig(char s[10])
 
 }
 
-
 int isdup(char buffer[15])
 {
     int i;
@@ -52,9 +51,9 @@ int isdup(char buffer[15])
     return 0;
 }
 
-int main()
+void main()
 {
- char c,buffer[15],operators[]="+-%=*/",dupop[10],opsize=0,k,dupflag;
+    char c,buffer[15],operators[]="+-%=*/",dupop[10],opsize=0,k,dupflag;
     int i,flag,j=0;
     FILE *fp;
     isize=0;
@@ -65,16 +64,36 @@ int main()
     {
         printf("\n cannot open file");
         exit(0);
-}
-   while((c==fgetc(fp)) != EOF)
-   {
-        dupflag = 0;
-        flag = 0;
+    }
+    while((c=fgetc(fp))!=EOF)
+    {
+        dupflag=0;
+        
+        flag=0;
         for(i=0;i<6;i++)
+        {
+            if(c==operators[i])
             {
-        if(c==operators[i])
-            printf("%c is an operator",c);
-
+                flag=1;
+                break;
+            }
+        }
+        if(flag==1)
+        {
+            for(k=0;k<opsize;k++)
+            {
+                if(c==dupop[k])
+                {
+                    dupflag=1;
+                    break;
+                }
+            }
+            if(dupflag==0)
+            {
+                printf("\n%c is an operator",c);
+                dupop[opsize++]=c;
+            }
+        }
         if(isalnum(c))
         {
             buffer[j++]=c;
@@ -97,7 +116,5 @@ int main()
             }
         }
     }
-   fclose(fp);
-    return 0;
+    fclose(fp);
 }
-} 

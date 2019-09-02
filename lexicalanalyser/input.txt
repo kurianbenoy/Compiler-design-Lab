@@ -1,4 +1,6 @@
+void main()
+{
 x=a*b;
-
-int y;
+float a;
 int x;
+}
