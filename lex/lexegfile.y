@@ -1,4 +1,4 @@
-*** Definition section ***/
+/*** Definition section ***/
 
 %{
 /* C code to be copied verbatim */
@@ -27,3 +27,4 @@ int main(void)
     /* Call the lexer, then quit. */
     yylex();
     return 0;
+}
