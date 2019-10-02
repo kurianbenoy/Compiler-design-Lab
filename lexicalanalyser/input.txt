@@ -1,5 +1,6 @@
 void main()
 {
+int a, b;
 x=a*b;
 float a;
 int x;

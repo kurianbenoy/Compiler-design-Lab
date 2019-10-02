@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<ctype.h>
 
 char identifiers[10][10];
 int isize;
@@ -23,7 +24,7 @@ int i, flag = 0;
     return 0;
 }
 
-int isdig(char s[10])
+int isdigit(char s[10])
 {
     int n=strlen(s),i,flag=1;
     for(i=0;i<n;i++)
@@ -87,15 +88,16 @@ int main()
             {
                 printf("\n %s is a keyword",buffer);
             }
-            else if(isdig(buffer)==0)
-            {
+        // what is the use of isdig?
+//        else if(isdigit(buffer)==0)
+  //          {
                 if(isdup(buffer)==0)
                 {
                     printf("\n %s is an identifier",buffer);
                     strcpy(identifiers[isize++],buffer);
                 }
             }
-        }
+//        }
     }
    fclose(fp);
     return 0;
