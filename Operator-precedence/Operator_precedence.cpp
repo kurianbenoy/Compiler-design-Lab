@@ -1,4 +1,5 @@
-/*Credits: xJ*/ #include<iostream>
+/*Credits: xJ*/ 
+#include<iostream>
 
 int getindex(char c)
 {
@@ -28,19 +29,26 @@ int main()
 			'<', '<', '<', ' ',
 	};
 
-	stack<char> mstack; 	
+	std::stack<char> mstack; 	
 	mstack.push('$');
 	int i=0;
 	
 	while(str[i] != '\0')
 	{
-		if(pred[mstack.top()]:w
+
 		
-
-		std::cout<<getindex(str[i]);
-		if(stack[top] == prec 
-
-		i++;
+		if(prec[getindex(mstack.top())][getindex(str[i])] == '>')
+		{
+			mstack.push(str[i]);
+		}
+			std::cout<<mstack.top();
+	
+		else if (prec[getindex(mstack.top())][getindex(str[i])] == '<')
+		{
+			mstack.pop();
+			mstack.pop();
+		}			
+			std::cout<<mstack;
 	}
 
 	return 0;
